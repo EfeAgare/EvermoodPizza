@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_19_135823) do
+ActiveRecord::Schema.define(version: 2023_06_19_140452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.string "size"
+    t.string "add", default: [], array: true
+    t.string "remove", default: [], array: true
+    t.uuid "order_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_items_on_order_id"
+  end
 
   create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.integer "state", default: 0
@@ -23,4 +34,5 @@ ActiveRecord::Schema.define(version: 2023_06_19_135823) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "items", "orders"
 end
