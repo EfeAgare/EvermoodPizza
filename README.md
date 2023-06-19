@@ -1,24 +1,64 @@
-# README
+![example workflow](https://github.com/EfeAgare/EvermoodPizza/actions/workflows/test.yml/badge.svg)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Pizza Order System
+ A simple pizza order overview for a restaurant, where all pizza orders are listed, with the items they contain, their details and the total price. In addition, the system also enables you to mark an order as completed.
 
-Things you may want to cover:
+## Technologies
+  * Ruby
+  * Git
+  * Rspec
+  * Rubocop as Linter
 
-* Ruby version
+## Setup
+- Ensure you have [ruby](https://rvm.io/rvm/install) installed on your device
 
-* System dependencies
+  ```
+   Ruby = 3.0.0
+  ```
 
-* Configuration
+  Clone this repository and cd into the clone specific folder and run the following command 
+  accordingly
 
-* Database creation
+  ```
+   bundle install
+  ```
 
-* Database initialization
+  ```
+   yarn install
+  ```
 
-* How to run the test suite
+  ```
+   rails db:create 
+  ```
 
-* Services (job queues, cache servers, search engines, etc.)
+  ```
+   rails db:migrate
+  ```
 
-* Deployment instructions
+  ```
+  rails db:seed
+  ```
 
-* ...
+  After to run server
+
+  ```
+  rails s
+  ```
+
+then visit 
+
+```
+http://127.0.0.1:3000
+
+```
+
+### Task Done
+- Create the necessary data structures with postgres database following the provided data.
+  
+- Calculate the total_price for order, per each pizza requirement
+
+- Once a order is completed it is no longer be displayed in the UI
+
+- Create the required controller methods for display all orders and complete them
+
+- Write spec test

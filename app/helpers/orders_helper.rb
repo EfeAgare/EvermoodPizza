@@ -5,4 +5,3 @@ module OrdersHelper
     code.present? ? code : '-'
   end
 end
-
